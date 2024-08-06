@@ -54,7 +54,10 @@ public class CheckInService {
         checkInSpendingDto.setDocumento(hospede.getDocumento());
         checkInSpendingDto.setTelefone(hospede.getTelefone());
 
+        // Para cada checkin
+            // Buscar quantidade de dias, da semana ou sem semana, aplicar cálculos de valor
 
+        // Realizar o somatório para o total e identificar o checkin mais recente para preencher o campo correspondente
 
         return checkInSpendingDto;
     }
