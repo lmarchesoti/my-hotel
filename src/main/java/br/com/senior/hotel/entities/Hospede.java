@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-//@Table(name = "TB_HOSPEDE", schema = "HOTEL")
 public class Hospede {
 
     @Id

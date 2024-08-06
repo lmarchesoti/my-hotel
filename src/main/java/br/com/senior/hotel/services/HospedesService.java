@@ -16,8 +16,8 @@ public class HospedesService {
     @Autowired
     private HospedesRepository hospedesRepository;
 
-    public Page<Hospede> findAll(Pageable pageable) {
-        return hospedesRepository.findAll(pageable);
+    public Page<Hospede> findAllByQueryString(String queryStr, Pageable pageable) {
+        return hospedesRepository.findAllByQueryString(queryStr == null ? null : "%" + queryStr + "%", pageable);
     }
 
     public Hospede getHospede(Long hospedeId) {

@@ -19,9 +19,10 @@ public class HospedesController {
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     public Page<HospedeDto> listHospedes(@RequestParam(value = "page", defaultValue = "0") int page,
-                                         @RequestParam(value = "size", defaultValue = "100") int size) {
+                                         @RequestParam(value = "size", defaultValue = "100") int size,
+                                         @RequestParam(value = "q", required = false) String queryStr) {
         try {
-            return hospedesService.findAll(PageRequest.of(page, size)).map(HospedeDto::new);
+            return hospedesService.findAllByQueryString(queryStr, PageRequest.of(page, size)).map(HospedeDto::new);
         } catch (ResponseStatusException e) {
             throw e;
         } catch (Exception e) {
