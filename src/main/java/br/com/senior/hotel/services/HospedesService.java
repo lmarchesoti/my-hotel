@@ -49,4 +49,12 @@ public class HospedesService {
 
         hospedesRepository.deleteById(hospedeId);
     }
+
+    public Page<Hospede> getAllByEmHospedagem(Boolean emHospedagem, Pageable pageable) {
+        if (emHospedagem) {
+            return hospedesRepository.findAllEmHospedagem(pageable);
+        } else {
+            return hospedesRepository.findAllNotEmHospedagem(pageable);
+        }
+    }
 }

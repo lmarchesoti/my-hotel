@@ -1,9 +1,13 @@
 package br.com.senior.hotel.controllers;
 
 import br.com.senior.hotel.dto.CheckInDto;
+import br.com.senior.hotel.dto.CheckInSpendingDto;
 import br.com.senior.hotel.services.CheckInService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +29,20 @@ public class CheckInController {
                           @RequestParam("hospedeId") Long hospedeId) {
         try {
             return checkInService.createCheckin(checkinDto, hospedeId);
+        } catch (ResponseStatusException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        }
+    }
+
+    @GetMapping("/billing-by-customer")
+    @ResponseStatus(HttpStatus.OK)
+    public Page<CheckInSpendingDto> listCheckInSpending(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                        @RequestParam(value = "size", defaultValue = "100") int size,
+                                                        @RequestParam("emHospedagem") Boolean emHospedagem) {
+        try {
+            return checkInService.listBillingByCustomer(emHospedagem, PageRequest.of(page, size));
         } catch (ResponseStatusException e) {
             throw e;
         } catch (Exception e) {

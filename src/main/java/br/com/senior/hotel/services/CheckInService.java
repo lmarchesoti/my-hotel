@@ -1,20 +1,18 @@
 package br.com.senior.hotel.services;
 
 import br.com.senior.hotel.dto.CheckInDto;
+import br.com.senior.hotel.dto.CheckInSpendingDto;
 import br.com.senior.hotel.entities.CheckIn;
+import br.com.senior.hotel.entities.CheckInBillingParams;
 import br.com.senior.hotel.entities.Hospede;
 import br.com.senior.hotel.repositories.CheckInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Optional;
 
 @Service
 public class CheckInService {
@@ -23,6 +21,9 @@ public class CheckInService {
 
     @Autowired
     private CheckInRepository checkInRepository;
+
+    @Autowired
+    private CheckInBillingParamsService checkInBillingParamsService;
 
     @Autowired
     private HospedesService hospedesService;
@@ -37,5 +38,24 @@ public class CheckInService {
         checkIn.setAdicionalVeiculo(checkinDto.isAdicionalVeiculo());
 
         return checkInRepository.save(checkIn).getId();
+    }
+
+    public Page<CheckInSpendingDto> listBillingByCustomer(Boolean emHospedagem, Pageable pageable) {
+        CheckInBillingParams billingParams = checkInBillingParamsService.getBillingParams();
+        Page<Hospede> hospedes = hospedesService.getAllByEmHospedagem(emHospedagem, pageable);
+
+        return hospedes.map(hospede -> calculateHospedeSpending(hospede, billingParams));
+    }
+
+    private CheckInSpendingDto calculateHospedeSpending(Hospede hospede, CheckInBillingParams billingParams) {
+        CheckInSpendingDto checkInSpendingDto = new CheckInSpendingDto();
+
+        checkInSpendingDto.setNome(hospede.getNome());
+        checkInSpendingDto.setDocumento(hospede.getDocumento());
+        checkInSpendingDto.setTelefone(hospede.getTelefone());
+
+
+
+        return checkInSpendingDto;
     }
 }

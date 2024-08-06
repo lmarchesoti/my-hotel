@@ -5,9 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -28,4 +31,7 @@ public class Hospede {
 
     @Column(name = "TELEFONE")
     private String telefone;
+
+    @OneToMany(mappedBy = "hospede")
+    private List<CheckIn> checkIns;
 }
