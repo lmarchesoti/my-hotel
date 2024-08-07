@@ -87,6 +87,8 @@ curl --location 'http://localhost:5000/checkin?hospedeId=:idHospede' \
     extensibilidade do sistema e reuso de código, sou favorável à primeira abordagem, porém pensando em performance e
     na necessidade de ordenação pelos valores, a segunda se faz necessária e atende aos requisitos.
 
+4. Como estou desenvolvendo o código sozinho e para o desafio apenas, optei por desenvolver o código direto na `main`. 
+
 ## Conclusão
 
 Espero que gostem! Tive a oportunidade de utilizar vários conhecimentos e adquirir alguns novos também, foi bastante
