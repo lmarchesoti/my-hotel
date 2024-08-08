@@ -69,8 +69,8 @@ curl --location 'http://localhost:5000/checkin?hospedeId=:idHospede' \
 
 2. Sobre o endpoint das consultas, eu entendi que seriam 2 endpoints distintos, um para listagem de clientes, e 
    outro para listagem dos clientes com cálculo de valor gasto, incluindo também os filtros de cliente presente ou 
-   já ausente do hotel. Fazer a junção ou ajuste dessa interface dos endpoints seria simples depois da lógica desenvolvida.
-
+   já ausente do hotel. Fazer a junção ou ajuste dessa interface dos endpoints seria simples depois da lógica desenvolvida.  
+<strike>
 3. Ainda sobre o endpoint de consultas, fiquei entre 2 possibilidades para este desenvolvimento, e normalmente eu
    traria como pontos de discussão para a equipe, pois envolve tradeoffs de performance e usabilidade.
 
@@ -86,8 +86,12 @@ curl --location 'http://localhost:5000/checkin?hospedeId=:idHospede' \
     fazer os cálculos de dias da semana, que são necessários para gerar os valores corretos da consulta. Pensando em
     extensibilidade do sistema e reuso de código, sou favorável à primeira abordagem, porém pensando em performance e
     na necessidade de ordenação pelos valores, a segunda se faz necessária e atende aos requisitos.
-
+</strike>
 4. Como estou desenvolvendo o código sozinho e para o desafio apenas, optei por desenvolver o código direto na `main`. 
+
+EDIT: Acabei pensando em uma solução melhor para os valores na consulta. Posso deixar os valores calculados no banco, 
+atualizado toda vez que cria ou atualiza um CheckIn com dataSaida diferente de nulo. Assim a consulta fica rápida e 
+com paginação, pois consigo montar tudo com jpql :D
 
 ## Conclusão
 
