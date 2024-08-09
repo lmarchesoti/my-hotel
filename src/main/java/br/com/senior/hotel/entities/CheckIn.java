@@ -36,4 +36,7 @@ public class CheckIn {
 
     @Column(name = "FL_VEICULO")
     private boolean adicionalVeiculo;
+
+    @Column(name = "VALOR_COBRANCA")
+    private Double valorCobranca;
 }

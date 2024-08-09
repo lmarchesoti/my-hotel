@@ -16,6 +16,8 @@ services:
   postgres:
     container_name: senior-hotel-postgres
     image: 'postgres:16.3'
+    ports:
+      - '5432:5432'
     environment:
       - 'POSTGRES_DB=seniorhotel'
       - 'POSTGRES_PASSWORD=hotel'

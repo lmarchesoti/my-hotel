@@ -23,7 +23,7 @@ public class CheckInService {
     private CheckInRepository checkInRepository;
 
     @Autowired
-    private CheckInBillingParamsService checkInBillingParamsService;
+    private CheckInBillingService checkInBillingService;
 
     @Autowired
     private HospedesService hospedesService;
@@ -34,31 +34,19 @@ public class CheckInService {
 
         checkIn.setHospede(hospede);
         checkIn.setDataEntrada(checkinDto.getDataEntrada() == null ? null : LocalDateTime.parse(checkinDto.getDataEntrada(), DATE_TIME_FORMATTER));
-        checkIn.setDataSaida(checkinDto.getDataSaida() == null ? null : LocalDateTime.parse(checkinDto.getDataSaida(), DATE_TIME_FORMATTER));
         checkIn.setAdicionalVeiculo(checkinDto.isAdicionalVeiculo());
+
+        if (checkinDto.getDataSaida() != null) {
+            checkIn.setDataSaida(LocalDateTime.parse(checkinDto.getDataSaida(), DATE_TIME_FORMATTER));
+            checkIn.setValorCobranca(checkInBillingService.calculateBilling(checkIn.getDataEntrada(), checkIn.getDataSaida(), checkIn.isAdicionalVeiculo()));
+        }
 
         return checkInRepository.save(checkIn).getId();
     }
 
     public Page<CheckInSpendingDto> listBillingByCustomer(Boolean emHospedagem, Pageable pageable) {
-        CheckInBillingParams billingParams = checkInBillingParamsService.getBillingParams();
-        Page<Hospede> hospedes = hospedesService.getAllByEmHospedagem(emHospedagem, pageable);
-
-        return hospedes.map(hospede -> calculateHospedeSpending(hospede, billingParams));
+//        return checkInRepository.listBillingByCustomer(emHospedagem, pageable);
+        return null;
     }
 
-    private CheckInSpendingDto calculateHospedeSpending(Hospede hospede, CheckInBillingParams billingParams) {
-        CheckInSpendingDto checkInSpendingDto = new CheckInSpendingDto();
-
-        checkInSpendingDto.setNome(hospede.getNome());
-        checkInSpendingDto.setDocumento(hospede.getDocumento());
-        checkInSpendingDto.setTelefone(hospede.getTelefone());
-
-        // Para cada checkin
-            // Buscar quantidade de dias, da semana ou sem semana, aplicar cálculos de valor
-
-        // Realizar o somatório para o total e identificar o checkin mais recente para preencher o campo correspondente
-
-        return checkInSpendingDto;
-    }
 }
