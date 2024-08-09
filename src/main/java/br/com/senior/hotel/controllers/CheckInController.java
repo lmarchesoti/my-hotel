@@ -1,7 +1,7 @@
 package br.com.senior.hotel.controllers;
 
 import br.com.senior.hotel.dto.CheckInDto;
-import br.com.senior.hotel.dto.CheckInSpendingDto;
+import br.com.senior.hotel.projections.CheckInSpendingView;
 import br.com.senior.hotel.services.CheckInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,9 +38,9 @@ public class CheckInController {
 
     @GetMapping("/billing-by-customer")
     @ResponseStatus(HttpStatus.OK)
-    public Page<CheckInSpendingDto> listCheckInSpending(@RequestParam(value = "page", defaultValue = "0") int page,
-                                                        @RequestParam(value = "size", defaultValue = "100") int size,
-                                                        @RequestParam("emHospedagem") Boolean emHospedagem) {
+    public Page<CheckInSpendingView> listCheckInSpending(@RequestParam(value = "page", defaultValue = "0") int page,
+                                                         @RequestParam(value = "size", defaultValue = "100") int size,
+                                                         @RequestParam("emHospedagem") Boolean emHospedagem) {
         try {
             return checkInService.listBillingByCustomer(emHospedagem, PageRequest.of(page, size));
         } catch (ResponseStatusException e) {

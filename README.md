@@ -65,33 +65,14 @@ curl --location 'http://localhost:5000/checkin?hospedeId=:idHospede' \
 ## Observações
 
 1. Ao subir o projeto, ele popula uma tabela de configuração com os valores de diárias, adicionais de garagem e
-   horário limite para a cobrança de uma diária adicional no checkout.
+   horário limite para a cobrança de uma diária adicional no checkout. Em um ambiente de produção isso pode ser 
+   desabilitado.
 
 2. Sobre o endpoint das consultas, eu entendi que seriam 2 endpoints distintos, um para listagem de clientes, e 
    outro para listagem dos clientes com cálculo de valor gasto, incluindo também os filtros de cliente presente ou 
    já ausente do hotel. Fazer a junção ou ajuste dessa interface dos endpoints seria simples depois da lógica desenvolvida.  
-<strike>
-3. Ainda sobre o endpoint de consultas, fiquei entre 2 possibilidades para este desenvolvimento, e normalmente eu
-   traria como pontos de discussão para a equipe, pois envolve tradeoffs de performance e usabilidade.
 
-    3.1 Na primeira abordagem (que é a presente no código atualmente, porém não finalizada) eu busco a lista de clientes
-        com paginação e depois disso calculo os valores gastos no java, aplicando as regras de data.
-
-    3.2 Na segunda abordagem, utilizaria uma query nativa para ter acesso às funções de data do sql e passaria os
-        valores praticados como parâmetros na consulta. Essa abordagem tem o benefício de permitir a ordenação da
-        query pelos valores mantendo a paginação, porém o reuso do código é reduzido pela criação de código nativo
-        do banco.
-
-    Essa decisão de design é necessária pois em jpql não tenho acesso a funções de datas complexas, por exemplo para
-    fazer os cálculos de dias da semana, que são necessários para gerar os valores corretos da consulta. Pensando em
-    extensibilidade do sistema e reuso de código, sou favorável à primeira abordagem, porém pensando em performance e
-    na necessidade de ordenação pelos valores, a segunda se faz necessária e atende aos requisitos.
-</strike>
-4. Como estou desenvolvendo o código sozinho e para o desafio apenas, optei por desenvolver o código direto na `main`. 
-
-EDIT: Acabei pensando em uma solução melhor para os valores na consulta. Posso deixar os valores calculados no banco, 
-atualizado toda vez que cria ou atualiza um CheckIn com dataSaida diferente de nulo. Assim a consulta fica rápida e 
-com paginação, pois consigo montar tudo com jpql :D
+3. Como estou desenvolvendo o código sozinho e para o desafio apenas, optei por desenvolver o código direto na `main`. 
 
 ## Conclusão
 

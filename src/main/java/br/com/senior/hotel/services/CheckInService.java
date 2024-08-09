@@ -1,9 +1,8 @@
 package br.com.senior.hotel.services;
 
 import br.com.senior.hotel.dto.CheckInDto;
-import br.com.senior.hotel.dto.CheckInSpendingDto;
+import br.com.senior.hotel.projections.CheckInSpendingView;
 import br.com.senior.hotel.entities.CheckIn;
-import br.com.senior.hotel.entities.CheckInBillingParams;
 import br.com.senior.hotel.entities.Hospede;
 import br.com.senior.hotel.repositories.CheckInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +43,8 @@ public class CheckInService {
         return checkInRepository.save(checkIn).getId();
     }
 
-    public Page<CheckInSpendingDto> listBillingByCustomer(Boolean emHospedagem, Pageable pageable) {
-//        return checkInRepository.listBillingByCustomer(emHospedagem, pageable);
-        return null;
+    public Page<CheckInSpendingView> listBillingByCustomer(Boolean emHospedagem, Pageable pageable) {
+        return checkInRepository.listBillingByCustomer(emHospedagem, pageable);
     }
 
 }
