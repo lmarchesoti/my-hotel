@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: senior-hotel-app:latest
     environment:
       - 'DB_HOST=senior-hotel-postgres'
     ports:

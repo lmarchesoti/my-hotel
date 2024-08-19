@@ -23,6 +23,10 @@ public class CheckInBillingService {
 
     public Double calculateBilling(LocalDateTime dataEntrada, LocalDateTime dataSaida, boolean adicionalVeiculo) {
         CheckInBillingParams billingParams = getBillingParams();
+        return doBillingCalculation(dataEntrada, dataSaida, adicionalVeiculo, billingParams);
+    }
+
+    protected static double doBillingCalculation(LocalDateTime dataEntrada, LocalDateTime dataSaida, boolean adicionalVeiculo, CheckInBillingParams billingParams) {
         double valorTotal = 0D;
         double valorSegASex = billingParams.getDiariaSegASex() + (adicionalVeiculo ? billingParams.getGaragemSegASex() : 0D);
         double valorFimDeSemana = billingParams.getDiariaFimDeSemana() + (adicionalVeiculo ? billingParams.getGaragemFimDeSemana() : 0D);
