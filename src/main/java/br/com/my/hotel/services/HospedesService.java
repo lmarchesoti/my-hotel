@@ -1,8 +1,8 @@
-package br.com.senior.hotel.services;
+package br.com.my.hotel.services;
 
-import br.com.senior.hotel.dto.HospedeDto;
-import br.com.senior.hotel.entities.Hospede;
-import br.com.senior.hotel.repositories.HospedesRepository;
+import br.com.my.hotel.dto.HospedeDto;
+import br.com.my.hotel.entities.Hospede;
+import br.com.my.hotel.repositories.HospedesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

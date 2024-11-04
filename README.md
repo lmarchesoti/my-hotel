@@ -1,4 +1,4 @@
-# desafio-senior-backend
+# desafio-backend
 
 Projeto desenvolvido como desafio técnico.
 

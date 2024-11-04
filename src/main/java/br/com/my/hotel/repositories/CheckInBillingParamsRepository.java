@@ -1,6 +1,6 @@
-package br.com.senior.hotel.repositories;
+package br.com.my.hotel.repositories;
 
-import br.com.senior.hotel.entities.CheckInBillingParams;
+import br.com.my.hotel.entities.CheckInBillingParams;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

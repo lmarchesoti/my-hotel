@@ -1,7 +1,7 @@
-package br.com.senior.hotel.services;
+package br.com.my.hotel.services;
 
-import br.com.senior.hotel.entities.CheckInBillingParams;
-import br.com.senior.hotel.repositories.CheckInBillingParamsRepository;
+import br.com.my.hotel.entities.CheckInBillingParams;
+import br.com.my.hotel.repositories.CheckInBillingParamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

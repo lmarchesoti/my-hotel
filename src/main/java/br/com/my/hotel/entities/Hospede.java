@@ -1,4 +1,4 @@
-package br.com.senior.hotel.entities;
+package br.com.my.hotel.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

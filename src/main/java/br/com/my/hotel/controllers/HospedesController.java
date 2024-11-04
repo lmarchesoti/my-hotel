@@ -1,7 +1,7 @@
-package br.com.senior.hotel.controllers;
+package br.com.my.hotel.controllers;
 
-import br.com.senior.hotel.dto.HospedeDto;
-import br.com.senior.hotel.services.HospedesService;
+import br.com.my.hotel.dto.HospedeDto;
+import br.com.my.hotel.services.HospedesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

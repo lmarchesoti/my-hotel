@@ -1,8 +1,8 @@
-package br.com.senior.hotel.controllers;
+package br.com.my.hotel.controllers;
 
-import br.com.senior.hotel.dto.CheckInDto;
-import br.com.senior.hotel.projections.CheckInSpendingView;
-import br.com.senior.hotel.services.CheckInService;
+import br.com.my.hotel.dto.CheckInDto;
+import br.com.my.hotel.projections.CheckInSpendingView;
+import br.com.my.hotel.services.CheckInService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

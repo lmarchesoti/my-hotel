@@ -1,7 +1,7 @@
-package br.com.senior.hotel.repositories;
+package br.com.my.hotel.repositories;
 
-import br.com.senior.hotel.projections.CheckInSpendingView;
-import br.com.senior.hotel.entities.CheckIn;
+import br.com.my.hotel.projections.CheckInSpendingView;
+import br.com.my.hotel.entities.CheckIn;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

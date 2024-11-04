@@ -1,4 +1,4 @@
-package br.com.senior.hotel.configuration;
+package br.com.my.hotel.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

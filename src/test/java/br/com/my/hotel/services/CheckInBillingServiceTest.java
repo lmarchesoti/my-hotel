@@ -1,6 +1,6 @@
-package br.com.senior.hotel.services;
+package br.com.my.hotel.services;
 
-import br.com.senior.hotel.entities.CheckInBillingParams;
+import br.com.my.hotel.entities.CheckInBillingParams;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;

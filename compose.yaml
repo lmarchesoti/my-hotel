@@ -1,28 +1,28 @@
 services:
   app:
-    container_name: senior-hotel-app
+    container_name: my-hotel-app
     build:
       context: .
       dockerfile: Dockerfile
     environment:
-      - 'DB_HOST=senior-hotel-postgres'
+      - 'DB_HOST=my-hotel-postgres'
     ports:
       - '5000:8080'
     networks:
-      - senior-hotel-network
+      - my-hotel-network
     depends_on:
       - postgres
   postgres:
-    container_name: senior-hotel-postgres
+    container_name: my-hotel-postgres
     image: 'postgres:16.3'
     ports:
       - '5432:5432'
     environment:
-      - 'POSTGRES_DB=seniorhotel'
+      - 'POSTGRES_DB=myhotel'
       - 'POSTGRES_PASSWORD=hotel'
       - 'POSTGRES_USER=hotel_user'
     networks:
-      - senior-hotel-network
+      - my-hotel-network
 networks:
-  senior-hotel-network:
+  my-hotel-network:
     driver: bridge

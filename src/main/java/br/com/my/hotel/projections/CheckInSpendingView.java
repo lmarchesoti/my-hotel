@@ -1,4 +1,4 @@
-package br.com.senior.hotel.projections;
+package br.com.my.hotel.projections;
 
 public interface CheckInSpendingView {
     String getNome();

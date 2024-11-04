@@ -8,10 +8,10 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.senior</groupId>
-	<artifactId>hotel</artifactId>
+	<groupId>br.com.my</groupId>
+	<artifactId>my-hotel</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hotel</name>
+	<name>my-hotel</name>
 	<description>Projeto teste backend</description>
 	<url/>
 	<licenses>
@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
-		<start-class>br.com.senior.hotel.HotelApplication</start-class>
+		<start-class>br.com.my.hotel.HotelApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -78,7 +78,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>br.com.senior.hotel.HotelApplication</mainClass>
+					<mainClass>br.com.my.hotel.HotelApplication</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

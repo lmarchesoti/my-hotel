@@ -1,10 +1,10 @@
-package br.com.senior.hotel.services;
+package br.com.my.hotel.services;
 
-import br.com.senior.hotel.dto.CheckInDto;
-import br.com.senior.hotel.projections.CheckInSpendingView;
-import br.com.senior.hotel.entities.CheckIn;
-import br.com.senior.hotel.entities.Hospede;
-import br.com.senior.hotel.repositories.CheckInRepository;
+import br.com.my.hotel.dto.CheckInDto;
+import br.com.my.hotel.projections.CheckInSpendingView;
+import br.com.my.hotel.entities.CheckIn;
+import br.com.my.hotel.entities.Hospede;
+import br.com.my.hotel.repositories.CheckInRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

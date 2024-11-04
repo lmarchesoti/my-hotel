@@ -1,6 +1,6 @@
-package br.com.senior.hotel.dto;
+package br.com.my.hotel.dto;
 
-import br.com.senior.hotel.entities.Hospede;
+import br.com.my.hotel.entities.Hospede;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
